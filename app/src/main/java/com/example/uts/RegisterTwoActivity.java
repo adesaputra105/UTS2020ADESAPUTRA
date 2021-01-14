@@ -39,13 +39,9 @@ public class RegisterTwoActivity extends AppCompatActivity {
     DatabaseReference reference;
     StorageReference storage;
 
-    String USERNAME_KEY = "adesaputra";
+    String USERNAME_KEY = "usernamekey";
     String username_key = "";
     String username_key_new = "";
-
-//    FirebaseStorage storage2 = FirebaseStorage.getInstance();
-//    StorageReference storageRef = storage2.getReferenceFromUrl("gs://utsamubti7jm1711500105adesaput.appspot.com");    //change the url according to your firebase app
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +63,6 @@ public class RegisterTwoActivity extends AppCompatActivity {
             }
         });
 
-        alamat.setText(username_key_new);
-
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,35 +76,24 @@ public class RegisterTwoActivity extends AppCompatActivity {
                             .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                            String uri_photo = taskSnapshot.getDownloadUrl().toString();
-
                             String  uri_photo = taskSnapshot.getStorage().getDownloadUrl().toString();
                             reference.getRef().child("url_photo_profile").setValue(uri_photo);
-                            reference.getRef().child("hobi").setValue(hobi.getText().toString());
+                            reference.getRef().child("nama_lengkap").setValue(hobi.getText().toString());
                             reference.getRef().child("alamat").setValue(alamat.getText().toString());
 
                             Toast.makeText(RegisterTwoActivity.this, "Upload successful", Toast.LENGTH_SHORT).show();
 
                         }
-                    })
-//                    .addOnFailureListener(new OnFailureListener() {
-//                        @Override
-//                        public void onFailure(@NonNull Exception e) {
-//                            Toast.makeText(RegisterTwoActivity.this, "Upload Failed -> " + e, Toast.LENGTH_SHORT).show();
-//                        }
-//                    });
-
-                            .addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                    }).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-                            Intent gotosuccess = new Intent(RegisterTwoActivity.this, MainActivity.class);
+                            Intent gotosuccess = new Intent(RegisterTwoActivity.this, HomeActivity.class);
                             startActivity(gotosuccess);
                         }
                     });
                 }
             }
         });
-
 
     }
 

@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterOneActivity">
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/textView"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="Hello world!"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
-    <!--        app:layout_constraintRight_toRightOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"/>-->
-
     <LinearLayout
+        android:gravity="center"
+        android:padding="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -24,25 +17,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+        <TextView
+            android:textColor="#ffffff"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="15pt"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="REGISTER"/>
+
         <RelativeLayout
+            android:padding="15dp"
+            android:background="@drawable/bg_layout_white"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <LinearLayout
+                android:gravity="center"
                 android:id="@+id/line1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
-
-                <ImageView
-                    android:id="@+id/textView6"
-                    android:layout_width="match_parent"
-                    android:layout_height="78dp"
-                    android:background="@drawable/reg"
-                    android:gravity="center"
-                    android:textSize="26sp"
-                    android:textStyle="bold" />
 
                 <TextView
                    android:paddingRight="12dp"
@@ -100,35 +99,20 @@
                     android:inputType="textPersonName" />
 
                 <Button
-
                     android:id="@+id/next"
                     android:layout_width="match_parent"
                     android:layout_marginTop="12pt"
-                    android:layout_height="59dp"
+                    android:layout_height="50dp"
                     android:textSize="12pt"
                     android:layout_marginLeft="12pt"
                     android:layout_marginRight="12pt"
-                    android:background="@drawable/bgbtn"
+                    android:background="@color/colorPrimary"
                     android:text="NEXT"
                     android:textColor="#ffffff"
                      />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_alignParentBottom="true"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="67dp"
-                    android:background="@drawable/footer"
-                    android:gravity="center"
-                    android:textSize="26sp"
-                    android:textStyle="bold" />
 
             </LinearLayout>
+
         </RelativeLayout>
 
 

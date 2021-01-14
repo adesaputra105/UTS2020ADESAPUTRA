@@ -22,7 +22,7 @@ public class RegisterOneActivity extends AppCompatActivity {
     EditText username, password, email;
 
     DatabaseReference reference;
-    String USERNAME_KEY = "adesaputra";
+    String USERNAME_KEY = "usernamekey";
     String username_key = "";
 
     @Override
@@ -38,6 +38,10 @@ public class RegisterOneActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                next.setEnabled(false);
+                next.setText("Loading ...");
+
                 SharedPreferences sharedPreferences = getSharedPreferences(USERNAME_KEY, MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString(username_key, username.getText().toString());
@@ -50,6 +54,7 @@ public class RegisterOneActivity extends AppCompatActivity {
                         dataSnapshot.getRef().child("username").setValue(username.getText().toString());
                         dataSnapshot.getRef().child("password").setValue(password.getText().toString());
                         dataSnapshot.getRef().child("email").setValue(email.getText().toString());
+                        dataSnapshot.getRef().child("user_balance").setValue(1000);
                     }
 
                     @Override
